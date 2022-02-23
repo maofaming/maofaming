@@ -15,7 +15,7 @@ importScripts("/maofaming/workbox-v4.3.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/maofaming/workbox-v4.3.1"});
 
 importScripts(
-  "/maofaming/precache-manifest.d4ed87821b2864af7109389b8d74081f.js"
+  "/maofaming/precache-manifest.324cf36be9d0121f13a1e741c73ee817.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "game-app"});
