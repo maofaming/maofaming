@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><!--[if IE]><link rel="icon" href="/favicon.ico"><![endif]--><title>游戏中心</title><meta name=description content=游戏中心><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name=format-detection content="telephone=no,email=no"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-touch-fullscreen content=yes><script>(function (designWidth, maxWidth) {
+        var doc = document,
+            win = window;
+        var docEl = doc.documentElement;
+        var metaEl,
+            metaElCon;
+        var styleText,
+            remStyle = document.createElement("style");
+        var tid;
+
+        function refreshRem() {
+            // var width = parseInt(window.screen.width); // uc有bug
+            var width = docEl.getBoundingClientRect().width;
+            var rem
+            if (width > maxWidth) { // 淘宝做法：限制在540的屏幕下，这样100%就跟10rem不一样了
+                rem = 50
+            } else {
+                rem = width / 10// designWidth;
+            }
+
+            // rem = width / 10// designWidth;
+            // var rem = width / 10; // 如果要兼容vw的话分成10份 淘宝做法
+            //docEl.style.fontSize = rem + "px"; //旧的做法，在uc浏览器下面会有切换横竖屏时定义了font-size的标签不起作用的bug
+            remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+        }
+
+        refreshRem();
+
+        if (docEl.firstElementChild) {
+            docEl.firstElementChild.appendChild(remStyle);
+        }
+        else {
+            var wrap = doc.createElement("div");
+            wrap.appendChild(remStyle);
+            doc.write(wrap.innerHTML);
+            wrap = null;
+        }
+
+        win.addEventListener("resize", function () {
+            clearTimeout(tid); //防止执行两次
+            tid = setTimeout(refreshRem, 300);
+        }, false);
+
+        win.addEventListener("pageshow", function (e) {
+            if (e.persisted) { // 浏览器后退的时候重新计算
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }
+        }, false);
+
+        if (doc.readyState === "complete") {
+            doc.body.style.fontSize = "16px";
+        }
+        else {
+            doc.addEventListener("DOMContentLoaded", function (e) {
+                doc.body.style.fontSize = "16px";
+            }, false);
+        }
+    })(750, 750);</script><link href=/css/app.a4fa7180.css rel=preload as=style><link href=/css/chunk-vendors.8cf56885.css rel=preload as=style><link href=/js/app.a3d08c0f.js rel=preload as=script><link href=/js/chunk-vendors.031ce427.js rel=preload as=script><link href=/css/chunk-vendors.8cf56885.css rel=stylesheet><link href=/css/app.a4fa7180.css rel=stylesheet><link rel=icon type=image/png sizes=32x32 href=/images/icons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/images/icons/favicon-16x16.png><link rel=manifest href=/manifest.json><meta name=theme-color content=#4DBA87><meta name=apple-mobile-web-app-capable content=no><meta name=apple-mobile-web-app-status-bar-style content=default><meta name=apple-mobile-web-app-title content=游戏中心><link rel=apple-touch-icon href=/images/icons/icon-152x152.png><link rel=mask-icon href=/images/icons/icon-72x72.png color=#4DBA87><meta name=msapplication-TileImage content=/images/icons/icon-144x144.png><meta name=msapplication-TileColor content=#000000></head><body><noscript><strong>We're sorry but activity doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script>var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?45527584728dfe499ed78ab947687d67";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();</script><script>(function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();</script><script src=/js/chunk-vendors.031ce427.js></script><script src=/js/app.a3d08c0f.js></script></body></html>
