@@ -11,11 +11,11 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("/workbox-v4.3.1/workbox-sw.js");
-workbox.setConfig({modulePathPrefix: "/workbox-v4.3.1"});
+importScripts("/maofaming/workbox-v4.3.1/workbox-sw.js");
+workbox.setConfig({modulePathPrefix: "/maofaming/workbox-v4.3.1"});
 
 importScripts(
-  "/precache-manifest.0b71a307aeb5db25ae34cc3ca1b5188a.js"
+  "/maofaming/precache-manifest.d4ed87821b2864af7109389b8d74081f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "game-app"});
